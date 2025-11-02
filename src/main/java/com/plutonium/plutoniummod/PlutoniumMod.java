@@ -1,5 +1,7 @@
 package com.plutonium.plutoniummod;
 
+import com.plutonium.plutoniummod.blocks.ModBlocks;
+import com.plutonium.plutoniummod.itens.ModItens;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModContainer;
@@ -19,6 +21,9 @@ public class PlutoniumMod {
     public PlutoniumMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        //Registro de blocos e itens
+        ModItens.ITENS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
         modEventBus.addListener(this::commonSetup);
     }
 
