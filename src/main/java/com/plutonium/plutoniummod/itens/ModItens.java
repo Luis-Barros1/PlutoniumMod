@@ -10,6 +10,13 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModItens {
+    public static final DeferredRegister<Item> ITENS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, PlutoniumMod.MOD_ID);
+
+    // Item Raw Pandorith (minério bruto)
+    public static final RegistryObject<Item> RAW_PANDORITH = ITENS.register("raw_pandorith",
+            () -> new PandorithItem());
+
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, PlutoniumMod.MOD_ID);
 
