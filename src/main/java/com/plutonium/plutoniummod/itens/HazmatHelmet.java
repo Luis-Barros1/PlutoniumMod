@@ -5,9 +5,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ArmorMaterials;
 
 public class HazmatHelmet extends ArmorItem {
-    public HazmatHelmet(Properties properties) {
-        super(ArmorMaterials.CHAIN,,properties);
-        properties.durability(500);
-
+    //TODO: Quando tivermos plastico mudar todas armor materials para plastico
+    public HazmatHelmet(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
+        super(pMaterial, pType, pProperties);
     }
 }
