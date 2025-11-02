@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "GLG",
+      "G G"
+    ],
+    "key": {
+      "G": {
+        "item": "minecraft:gold_ingot"
+      },
+      "L": {
+        "item": "minecraft:leather"
+      }
+    },
+    "result": {
+      "item": "plutoniummod:hazmat_helmet",
+      "count": 1
+    }
+}

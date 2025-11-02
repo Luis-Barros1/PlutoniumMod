@@ -1,8 +1,7 @@
-package com.plutonium.plutoniummod.itens;
+package com.plutonium.plutoniummod.itens.hazmatSuit;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
-import net.minecraft.world.item.ArmorMaterials;
 
 public class HazmatHelmet extends ArmorItem {
     //TODO: Quando tivermos plastico mudar todas armor materials para plastico
