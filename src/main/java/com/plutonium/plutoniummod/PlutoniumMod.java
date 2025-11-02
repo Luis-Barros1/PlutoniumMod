@@ -9,6 +9,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import com.plutonium.plutoniummod.blocks.ModBlocks;
+import com.plutonium.plutoniummod.itens.ModItens;
 
 
 @Mod(PlutoniumMod.MOD_ID)

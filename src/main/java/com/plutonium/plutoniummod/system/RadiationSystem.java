@@ -27,18 +27,18 @@ public class RadiationSystem {
         double change = 0.0;
 
         if (radiation >= 0.0) {
-            if (player.blockPosition().getY() < 62 && player.blockPosition().getY() > 30) {
+            if (player.blockPosition().getY() < 40 && player.blockPosition().getY() > 20) {
                 change -= 0.2;
             }
 
-            if (player.blockPosition().getY() < 30) {
+            if (player.blockPosition().getY() < 20) {
                 change -= 0.4;
             }
         }
 
         if (radiation <= 1000) {
             //Condionais e configs de radiação por nível
-            if (player.blockPosition().getY() > 62) {
+            if (player.blockPosition().getY() > 40) {
                 change += 0.2;
             }
             if (biome.contains("desert")) {
