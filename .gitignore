@@ -1,25 +1,41 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
+# ===========================================
+# Minecraft Forge Mod .gitignore
+# ===========================================
 
-# idea
-out
+# Build system
+.gradle/
+build/
+out/
+classes/
+bin/
+
+# Run folders
+run/
+logs/
+
+# IDEA project files
+.idea/
+*.iml
 *.ipr
 *.iws
-*.iml
-.idea
 
-# gradle
-build
-.gradle
+# VSCode
+.vscode/
 
-# other
-eclipse
-run
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
 
-# Files from Forge MDK
-forge*changelog.txt
+# System files
+.DS_Store
+Thumbs.db
+
+# Ignore gradle caches (but keep wrapper)
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.jar
+
+# Crash reports
+crash-reports/
