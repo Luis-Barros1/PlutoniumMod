@@ -1,6 +1,10 @@
 package com.plutonium.plutoniummod.itens;
 
 import com.plutonium.plutoniummod.PlutoniumMod;
+import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatBoots;
+import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatChestplate;
+import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatHelmet;
+import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatLeggings;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.ArmorItem;
@@ -21,19 +25,19 @@ public class ModItens {
             DeferredRegister.create(ForgeRegistries.ITEMS, PlutoniumMod.MOD_ID);
 
     public static final RegistryObject<Item> HAZMAT_HELMET = ITEMS.register("hazmat_helmet",
-            () -> new ArmorItem(ArmorMaterials.GOLD, ArmorItem.Type.HELMET,
+            () -> new HazmatHelmet(ArmorMaterials.GOLD, ArmorItem.Type.HELMET,
                     new Item.Properties().durability(100)));
 
     public static final RegistryObject<Item> HAZMAT_CHESTPLATE = ITEMS.register("hazmat_chestplate",
-            () -> new ArmorItem(ArmorMaterials.GOLD, ArmorItem.Type.CHESTPLATE,
+            () -> new HazmatChestplate(ArmorMaterials.GOLD, ArmorItem.Type.CHESTPLATE,
                     new Item.Properties().durability(130)));
 
     public static final RegistryObject<Item> HAZMAT_LEGGINGS = ITEMS.register("hazmat_leggings",
-            () -> new ArmorItem(ArmorMaterials.GOLD, ArmorItem.Type.LEGGINGS,
+            () -> new HazmatLeggings(ArmorMaterials.GOLD, ArmorItem.Type.LEGGINGS,
                     new Item.Properties().durability(120)));
 
     public static final RegistryObject<Item> HAZMAT_BOOTS = ITEMS.register("hazmat_boots",
-            () -> new ArmorItem(ArmorMaterials.GOLD, ArmorItem.Type.BOOTS,
+            () -> new HazmatBoots(ArmorMaterials.GOLD, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(90)));
 
     public static void register(IEventBus eventBus) {
