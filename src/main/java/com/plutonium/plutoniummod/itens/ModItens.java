@@ -1,10 +1,10 @@
 package com.plutonium.plutoniummod.itens;
 
 import com.plutonium.plutoniummod.PlutoniumMod;
-import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatBoots;
-import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatChestplate;
-import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatHelmet;
-import com.plutonium.plutoniummod.itens.hazmatSuit.HazmatLeggings;
+import com.plutonium.plutoniummod.itens.armor.hazmatSuit.HazmatBoots;
+import com.plutonium.plutoniummod.itens.armor.hazmatSuit.HazmatChestplate;
+import com.plutonium.plutoniummod.itens.armor.hazmatSuit.HazmatHelmet;
+import com.plutonium.plutoniummod.itens.armor.hazmatSuit.HazmatLeggings;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.ArmorItem;

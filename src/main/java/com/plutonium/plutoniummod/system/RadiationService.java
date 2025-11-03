@@ -50,11 +50,11 @@ public class RadiationService {
             case 1:
                 player.getPersistentData().putDouble(("Radiation_Cap"), 50);
                 break;
-                case 2:
-                    player.getPersistentData().putDouble(("Radiation_Cap"), 100);
-                    break;
-                    case 3:
-                        player.getPersistentData().putDouble(("Radiation_Cap"), 150);
+            case 2:
+                player.getPersistentData().putDouble(("Radiation_Cap"), 100);
+                break;
+            case 3:
+                player.getPersistentData().putDouble(("Radiation_Cap"), 150);
         }
     }
 

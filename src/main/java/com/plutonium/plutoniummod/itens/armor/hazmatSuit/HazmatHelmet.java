@@ -1,4 +1,4 @@
-package com.plutonium.plutoniummod.itens.hazmatSuit;
+package com.plutonium.plutoniummod.itens.armor.hazmatSuit;
 
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
