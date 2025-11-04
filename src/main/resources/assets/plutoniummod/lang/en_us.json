@@ -3,5 +3,6 @@
   "block.plutoniummod.pandorith_ore": "Pandorith Ore",
   "block.plutoniummod.deepslate_pandorith_ore": "Deepslate Pandorith Ore",
   "block.plutoniummod.raw_pandorith_block": "Block of Raw Pandorith",
+  "block.plutoniummod.decontamination_block": "Radiation Decontamination Block",
   "effect.plutoniummod.radiation_sickness": "Radiation"
 }

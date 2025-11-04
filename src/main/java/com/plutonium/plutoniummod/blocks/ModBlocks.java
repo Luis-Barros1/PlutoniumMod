@@ -28,6 +28,10 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(0.5f, 0.5f)));  // ← SUPER MACIO
 
+    // Bloco de Descontaminação de Radiação
+    public static final RegistryObject<Block> DECONTAMINATION_BLOCK = BLOCKS.register("decontamination_block",
+            () -> new DecontaminationBlock());
+
     // Itens dos blocos (mantém igual)
     public static final RegistryObject<Item> PANDORITH_ORE_ITEM = ModItens.ITENS.register("pandorith_ore",
             () -> new BlockItem(PANDORITH_ORE.get(), new Item.Properties()));
@@ -37,4 +41,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Item> RAW_PANDORITH_BLOCK_ITEM = ModItens.ITENS.register("raw_pandorith_block",
             () -> new BlockItem(RAW_PANDORITH_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> DECONTAMINATION_BLOCK_ITEM = ModItens.ITENS.register("decontamination_block",
+            () -> new BlockItem(DECONTAMINATION_BLOCK.get(), new Item.Properties()));
 }
