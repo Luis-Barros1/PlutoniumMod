@@ -8,6 +8,11 @@ public class RadiationEnvironment {
         RadiationData data = new RadiationData(player);
         int level = 0;
 
+        if (player.isCreative() || player.isSpectator()) {
+            data.setCanReceiveRadiation(false);
+            return 0;
+        }
+
         var biomeHolder = player.level().getBiome(player.blockPosition());
         var optKey = biomeHolder.unwrapKey();
         if (optKey.isPresent()) {

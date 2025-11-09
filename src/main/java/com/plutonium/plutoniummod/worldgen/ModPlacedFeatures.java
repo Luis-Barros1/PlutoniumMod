@@ -29,7 +29,7 @@ public class ModPlacedFeatures {
 
 
         List<PlacementModifier> modifiers = List.of(
-                RarityFilter.onAverageOnceEvery(25), // probabilidade (1 a cada 25 chunks)
+                RarityFilter.onAverageOnceEvery(80),
                 InSquarePlacement.spread(),
                 HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
                 BiomeFilter.biome()
