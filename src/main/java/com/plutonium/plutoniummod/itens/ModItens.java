@@ -36,6 +36,15 @@ public class ModItens {
             () -> new ArmorItem(ArmorMaterials.GOLD, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(90)));
 
+    public static final RegistryObject<Item> LEAD_ORE = ITENS.register("lead_ore", LeadOreItem::new);
+
+    public static final RegistryObject<Item> RAW_LEAD = ITENS.register("raw_lead",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> LEAD_INGOT = ITENS.register("lead_ingot",
+            () -> new Item(new Item.Properties()));
+
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

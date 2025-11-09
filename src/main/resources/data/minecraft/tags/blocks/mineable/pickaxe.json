@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "plutoniummod:lead_ore",
+    "plutoniummod:deepslate_lead_ore",
+    "plutoniummod:pandorith_ore",
+    "plutoniummod:deepslate_pandorith_ore"
+  ]
+}

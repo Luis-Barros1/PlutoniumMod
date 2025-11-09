@@ -1,0 +1,7 @@
+// 1.20.1	2025-11-08T12:46:08.5804053	World Gen: plutoniummod
+940eb2667dd8920cceb5c21557f973f1ed0082e7 data/plutoniummod/forge/biome_modifier/add_lead_ore.json
+476d4d4564911480a005942247e37e86278111f7 data/plutoniummod/forge/biome_modifier/add_pandorith_spire_nbt.json
+ace1144631b671b5ed46046bac8144e04ee684ba data/plutoniummod/worldgen/configured_feature/lead_ore.json
+12cf30aa130259c7d1960ce7848fe1353ca37965 data/plutoniummod/worldgen/configured_feature/pandorith_spire_nbt.json
+0c1991169ca39d08fad92d28ba7fa96c489386d0 data/plutoniummod/worldgen/placed_feature/lead_ore_placed.json
+7339a94f4779a2f39e93fb42bced022ba5a744fc data/plutoniummod/worldgen/placed_feature/pandorith_spire_nbt_placed.json

@@ -3,15 +3,14 @@ package com.plutonium.plutoniummod.blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 
-public class PandorithOreBlock extends Block {
+public class LeadOreBlock extends Block {
 
-    public PandorithOreBlock() {
-        super(Properties.of()
-                .mapColor(MapColor.STONE)
+    public LeadOreBlock() {
+        super(BlockBehaviour.Properties.of()
                 .strength(2.0f)
                 .sound(SoundType.STONE)
-                .requiresCorrectToolForDrops());
+                .requiresCorrectToolForDrops()
+        );
     }
 }

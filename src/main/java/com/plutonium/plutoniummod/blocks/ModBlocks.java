@@ -5,6 +5,7 @@ import com.plutonium.plutoniummod.itens.ModItens;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -21,12 +22,25 @@ public class ModBlocks {
     // Minério de Deepslate - SUPER MACIO
     public static final RegistryObject<Block> DEEPSLATE_PANDORITH_ORE = BLOCKS.register("deepslate_pandorith_ore",
             () -> new Block(BlockBehaviour.Properties.of()
-                    .strength(0.4f, 0.4f)));  // ← SUPER MACIO
+                    .strength(2.5f)
+                    .sound(SoundType.DEEPSLATE)
+                    .requiresCorrectToolForDrops()));  // ← SUPER MACIO
 
     // Bloco de Raw Pandorith - SUPER MACIO
     public static final RegistryObject<Block> RAW_PANDORITH_BLOCK = BLOCKS.register("raw_pandorith_block",
             () -> new Block(BlockBehaviour.Properties.of()
                     .strength(0.5f, 0.5f)));  // ← SUPER MACIO
+
+    // Minério de Chumbo
+    public static final RegistryObject<Block> LEAD_ORE = BLOCKS.register("lead_ore", LeadOreBlock::new);
+
+    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = BLOCKS.register("deepslate_lead_ore",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(2.5f)
+                    .sound(SoundType.DEEPSLATE)
+                    .requiresCorrectToolForDrops()));
+
+
 
     // Bloco de Descontaminação de Radiação
     public static final RegistryObject<Block> DECONTAMINATION_BLOCK = BLOCKS.register("decontamination_block",
@@ -44,4 +58,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Item> DECONTAMINATION_BLOCK_ITEM = ModItens.ITENS.register("decontamination_block",
             () -> new BlockItem(DECONTAMINATION_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> DEEPSLATE_LEAD_ORE_ITEM = ModItens.ITENS.register("deepslate_lead_ore",
+            () -> new BlockItem(DEEPSLATE_LEAD_ORE.get(), new Item.Properties()));
+
 }
