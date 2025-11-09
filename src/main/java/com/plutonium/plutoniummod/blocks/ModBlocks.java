@@ -40,6 +40,12 @@ public class ModBlocks {
                     .sound(SoundType.DEEPSLATE)
                     .requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> CAUTION_BLOCK = BLOCKS.register("caution_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(3.0f)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()));
+
 
 
     // Bloco de Descontaminação de Radiação
@@ -61,5 +67,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Item> DEEPSLATE_LEAD_ORE_ITEM = ModItens.ITENS.register("deepslate_lead_ore",
             () -> new BlockItem(DEEPSLATE_LEAD_ORE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CAUTIO_BLOCK = ModItens.ITENS.register("caution_block",
+            () -> new BlockItem(CAUTION_BLOCK.get(), new Item.Properties()));
 
 }
