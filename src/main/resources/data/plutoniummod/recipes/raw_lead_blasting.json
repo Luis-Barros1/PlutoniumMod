@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "plutoniummod:raw_lead"
+  },
+  "result": "plutoniummod:lead_ingot",
+  "experience": 0.7,
+  "cookingtime": 100
+}

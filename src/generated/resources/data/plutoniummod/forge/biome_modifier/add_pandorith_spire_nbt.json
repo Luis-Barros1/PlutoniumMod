@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": "plutoniummod:pandorith_spire_nbt_placed",
+  "step": "surface_structures"
+}

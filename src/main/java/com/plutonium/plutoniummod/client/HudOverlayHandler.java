@@ -90,6 +90,8 @@ public class HudOverlayHandler {
             } else if (i == fullHearts && hasHalfHeart) {
                 // Meio coração (u=9, v=0)
                 g.blit(RADIO_HEARTS, drawX, drawY, 9, 0, tileW, tileH, 27, 9);
+            } else if (i == 0) {
+                g.blit(RADIO_HEARTS, drawX, drawY, 9, 0, tileW, tileH, 27, 9);
             }
         }
 
