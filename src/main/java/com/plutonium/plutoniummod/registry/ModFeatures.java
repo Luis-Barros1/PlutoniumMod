@@ -1,6 +1,7 @@
 package com.plutonium.plutoniummod.registry;
 
 import com.plutonium.plutoniummod.PlutoniumMod;
+import com.plutonium.plutoniummod.worldgen.features.CraterFeature;
 import com.plutonium.plutoniummod.worldgen.features.PandorithSpireNBTFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -14,4 +15,7 @@ public class ModFeatures {
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PANDORITH_SPIRE =
             FEATURES.register("pandorith_spire", () -> new PandorithSpireNBTFeature(NoneFeatureConfiguration.CODEC));
+
+    public static final RegistryObject<Feature<NoneFeatureConfiguration>> CRATER_NBT =
+            FEATURES.register("crater", () -> new CraterFeature(NoneFeatureConfiguration.CODEC));
 }

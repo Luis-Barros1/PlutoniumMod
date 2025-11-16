@@ -22,6 +22,7 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> OVERWORLD_LEAD_ORE_KEY = registerKey("lead_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PANDORITH_SPIRE_NBT_KEY = registerKey("pandorith_spire_nbt");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> CRATER_NBT_KEY = registerKey("crater_nbt");
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
         System.out.println("[PlutoniumMod] Bootstrap chamado: ModConfiguredFeatures");
@@ -35,6 +36,9 @@ public class ModConfiguredFeatures {
 
         //Espinhos de Pandorith
         context.register(PANDORITH_SPIRE_NBT_KEY, new ConfiguredFeature<>(ModFeatures.PANDORITH_SPIRE.get(), NoneFeatureConfiguration.INSTANCE));
+
+        //Cratera
+        context.register(CRATER_NBT_KEY, new ConfiguredFeature<>(ModFeatures.CRATER_NBT.get(), NoneFeatureConfiguration.INSTANCE));
     }
 
 

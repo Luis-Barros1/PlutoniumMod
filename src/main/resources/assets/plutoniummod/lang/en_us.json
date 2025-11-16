@@ -6,13 +6,20 @@
   "block.plutoniummod.lead_ore": "Lead Ore",
   "block.plutoniummod.deepslate_lead_ore": "Deepslate Lead Ore",
   "block.plutoniummod.caution_block": "Caution Block",
+  "block.plutoniummod.checkered_tile": "Checkered Tile",
+  "block.plutoniummod.grandma_floor": "Grandma Floor",
+  "block.plutoniummod.ceramic_panel": "Ceramic Panel",
+  "block.plutoniummod.lead_block": "Lead Block",
+  "block.plutoniummod.steel_block": "Steel Block",
   "item.plutoniummod.raw_lead": "Raw Lead",
   "item.plutoniummod.lead_ingot": "Lead Ingot",
+  "item.plutoniummod.steel_ingot": "Steel Ingot",
   "block.plutoniummod.decontamination_block": "Radiation Decontamination Block",
   "effect.plutoniummod.radiation_sickness": "Radiation",
   "commands.plutonium.radiation.off": "Radiation disabled for %s",
   "commands.plutonium.radiation.off.self": "Your radiation has been cleared.",
   "commands.plutonium.radiation.on": "Radiation enabled for %s",
   "commands.plutonium.radiation.on.self": "Your radiation monitoring has been re-enabled.",
-  "commands.plutonium.radiation.on.fail": "%s is in creative mode. Radiation cannot be enabled."
+  "commands.plutonium.radiation.on.fail": "%s is in creative mode. Radiation cannot be enabled.",
+  "creativetab.plutoniun_tab": "Plutonium Mod"
 }

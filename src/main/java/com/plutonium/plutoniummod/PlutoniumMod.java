@@ -1,5 +1,6 @@
 package com.plutonium.plutoniummod;
 
+import com.plutonium.plutoniummod.itens.ModCreativeModtabs;
 import com.plutonium.plutoniummod.itens.ModItens;
 import com.plutonium.plutoniummod.registry.ModEffects;
 import com.plutonium.plutoniummod.blocks.ModBlocks;
@@ -24,6 +25,7 @@ public class PlutoniumMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModEffects.EFFECTS.register(modEventBus);
+        ModCreativeModtabs.register(modEventBus);
         ModItens.ITENS.register(modEventBus);
         ModBlocks.BLOCKS.register(modEventBus);
         ModFeatures.FEATURES.register(modEventBus);

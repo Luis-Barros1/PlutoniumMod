@@ -1,7 +1,10 @@
-// 1.20.1	2025-11-09T16:22:23.3715473	World Gen: plutoniummod
+// 1.20.1	2025-11-09T17:51:40.2291456	World Gen: plutoniummod
+c5afbb72b893e2d7e5eeabead9d9dab9e9583f68 data/plutoniummod/forge/biome_modifier/add_crater_nbt.json
 940eb2667dd8920cceb5c21557f973f1ed0082e7 data/plutoniummod/forge/biome_modifier/add_lead_ore.json
 476d4d4564911480a005942247e37e86278111f7 data/plutoniummod/forge/biome_modifier/add_pandorith_spire_nbt.json
+d014d8b0e36f692c5e959452dad0c736cc93856f data/plutoniummod/worldgen/configured_feature/crater_nbt.json
 ace1144631b671b5ed46046bac8144e04ee684ba data/plutoniummod/worldgen/configured_feature/lead_ore.json
 12cf30aa130259c7d1960ce7848fe1353ca37965 data/plutoniummod/worldgen/configured_feature/pandorith_spire_nbt.json
+6f0a4714df947f1e9c96c53fbce4bc0011abbde5 data/plutoniummod/worldgen/placed_feature/crater_nbt_placed.json
 0c1991169ca39d08fad92d28ba7fa96c489386d0 data/plutoniummod/worldgen/placed_feature/lead_ore_placed.json
 518d354e71f7039c274a30dfa9d2a5c15ec50544 data/plutoniummod/worldgen/placed_feature/pandorith_spire_nbt_placed.json

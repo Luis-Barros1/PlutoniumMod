@@ -14,8 +14,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_LEAD_ORE = registerkey("add_lead_ore");
-    public static final ResourceKey<BiomeModifier> ADD_PANDORITH_ORE = registerkey("add_pandorith_ore");
     public static final ResourceKey<BiomeModifier> ADD_PANDORITH_SPIRE_NBT = registerkey("add_pandorith_spire_nbt");
+    public static final ResourceKey<BiomeModifier> ADD_CRATER_NBT = registerkey("add_crater_nbt");
 
     public static void bootstrap(BootstapContext<BiomeModifier> context){
         System.out.println("[PlutoniumMod] Bootstrap chamado: ModBiomeModifiers");
@@ -31,6 +31,12 @@ public class ModBiomeModifiers {
         context.register(ADD_PANDORITH_SPIRE_NBT, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.PANDORITH_SPIRE_NBT_PLACED_KEY)),
+                GenerationStep.Decoration.SURFACE_STRUCTURES
+        ));
+
+        context.register(ADD_CRATER_NBT, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.CRATER_NBT_PLACED_KEY)),
                 GenerationStep.Decoration.SURFACE_STRUCTURES
         ));
     }
