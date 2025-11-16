@@ -46,6 +46,36 @@ public class ModBlocks {
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> STEEL_BLOCK = BLOCKS.register("steel_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .sound(SoundType.METAL)
+                    .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CHECKERED_TILE = BLOCKS.register("checkered_tile",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> LEAD_BLOCK = BLOCKS.register("lead_block",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .sound(SoundType.METAL)
+                    .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> GRANDMA_FLOOR = BLOCKS.register("grandma_floor",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> CERAMIC_PANEL = BLOCKS.register("ceramic_panel",
+            () -> new Block(BlockBehaviour.Properties.of()
+                    .strength(4.0f)
+                    .sound(SoundType.STONE)
+                    .requiresCorrectToolForDrops()));
+
 
 
     // Bloco de Descontaminação de Radiação
@@ -70,5 +100,20 @@ public class ModBlocks {
 
     public static final RegistryObject<Item> CAUTIO_BLOCK = ModItens.ITENS.register("caution_block",
             () -> new BlockItem(CAUTION_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> STEEL_BLOCK_ITEM = ModItens.ITENS.register("steel_block",
+            () -> new BlockItem(STEEL_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CHECKERED_TILE_ITEM = ModItens.ITENS.register("checkered_tile",
+            () -> new BlockItem(CHECKERED_TILE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> LEAD_BLOCK_ITEM = ModItens.ITENS.register("lead_block",
+            () -> new BlockItem(LEAD_BLOCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> GRANDMA_FLOOR_ITEM = ModItens.ITENS.register("grandma_floor",
+            () -> new BlockItem(GRANDMA_FLOOR.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CERAMIC_PANEL_ITEM = ModItens.ITENS.register("ceramic_panel",
+            () -> new BlockItem(CERAMIC_PANEL.get(), new Item.Properties()));
 
 }

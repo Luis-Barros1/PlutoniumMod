@@ -16,9 +16,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager;
 import net.minecraft.core.Vec3i;
 
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
 
 import java.util.List;
@@ -74,24 +72,36 @@ public class PandorithSpireNBTFeature extends Feature<NoneFeatureConfiguration> 
                 origin
         );
 
-        // ✅ VALIDAÇÃO 1: Verificar se tem chão sólido abaixo
-        BlockPos groundCheck = surface.below();
-        BlockState groundState = level.getBlockState(groundCheck);
+        // Configurações de rotação (precisamos do tamanho antes de validar)
+        Rotation rotation = Rotation.getRandom(random);
+        Mirror mirror = Mirror.NONE;
 
-        // Rejeitar se for água, lava, ar ou blocos não sólidos
-        if (groundState.isAir() ||
-                groundState.getFluidState().is(FluidTags.WATER) ||
-                groundState.getFluidState().is(FluidTags.LAVA) ||
-                !groundState.isSolidRender(level, groundCheck)) {
-            System.out.println("[PlutoniumMod] ❌ Terreno inválido em " + surface + " - bloco: " + groundState.getBlock());
-            return false;
-        }
+        StructurePlaceSettings settings = new StructurePlaceSettings()
+                .setRotation(rotation)
+                .setMirror(mirror)
+                .setIgnoreEntities(false)
+                .setKeepLiquids(false)  // Evita problemas com água/lava
+                .setRandom(random);
 
-        // ✅ VALIDAÇÃO 2: Verificar área 3x3 ao redor (mais rigoroso)
+        // Obter tamanho da estrutura ANTES de validar
+        Vec3i size = template.getSize(rotation);
+        BlockPos adjustedPos = surface.offset(-size.getX() / 2, 0, -size.getZ() / 2);
+
+        // ✅ VALIDAÇÃO: Verificar toda a área da base da estrutura
+        int totalBlocks = size.getX() * size.getZ();
         int solidBlocks = 0;
-        for (int x = -1; x <= 1; x++) {
-            for (int z = -1; z <= 1; z++) {
-                BlockPos checkPos = surface.offset(x, -1, z);
+        int minRequired = (int) (totalBlocks * 0.7); // Exigir pelo menos 70% dos blocos sólidos
+
+        for (int x = 0; x < size.getX(); x++) {
+            for (int z = 0; z < size.getZ(); z++) {
+                BlockPos checkPos = adjustedPos.offset(x, -1, z);
+                
+                // Verificar se a posição está dentro dos limites do mundo
+                if (checkPos.getY() < level.getMinBuildHeight() || checkPos.getY() >= level.getMaxBuildHeight()) {
+                    System.out.println("[PlutoniumMod] ❌ Posição fora dos limites do mundo: " + checkPos);
+                    return false;
+                }
+                
                 BlockState checkState = level.getBlockState(checkPos);
 
                 if (!checkState.isAir() &&
@@ -103,47 +113,57 @@ public class PandorithSpireNBTFeature extends Feature<NoneFeatureConfiguration> 
             }
         }
 
-        // Exigir pelo menos 7 dos 9 blocos sólidos (evita bordas de ilhas/lagos)
-        if (solidBlocks < 7) {
-            System.out.println("[PlutoniumMod] ❌ Área instável em " + surface + " - apenas " + solidBlocks + "/9 blocos sólidos");
+        // Validar se há terreno sólido suficiente
+        if (solidBlocks < minRequired) {
+            System.out.println("[PlutoniumMod] ❌ Área instável em " + adjustedPos + 
+                    " - apenas " + solidBlocks + "/" + totalBlocks + " blocos sólidos (mínimo: " + minRequired + ")");
             return false;
         }
 
-        System.out.println("[PlutoniumMod] ✅ Terreno validado: " + solidBlocks + "/9 blocos sólidos");
-
-        // Configurações de rotação
-        Rotation rotation = Rotation.getRandom(random);
-        Mirror mirror = Mirror.NONE;
-
-        StructurePlaceSettings settings = new StructurePlaceSettings()
-                .setRotation(rotation)
-                .setMirror(mirror)
-                .setIgnoreEntities(false)
-                .setKeepLiquids(false)  // Evita problemas com água/lava
-                .setRandom(random);
-
-        // Centralizar estrutura
-        Vec3i size = template.getSize(rotation);
-        BlockPos adjustedPos = surface.offset(-size.getX() / 2, 0, -size.getZ() / 2);
+        System.out.println("[PlutoniumMod] ✅ Terreno validado: " + solidBlocks + "/" + totalBlocks + " blocos sólidos");
 
         System.out.println("[PlutoniumMod] Posição ajustada: " + adjustedPos + " | Tamanho: " + size);
 
-        // Verificar chunks disponíveis
+        // ✅ Verificação robusta de chunks: incluir área da estrutura + chunks adjacentes
         int chunkX = adjustedPos.getX() >> 4;
         int chunkZ = adjustedPos.getZ() >> 4;
-        int endChunkX = (adjustedPos.getX() + size.getX()) >> 4;
-        int endChunkZ = (adjustedPos.getZ() + size.getZ()) >> 4;
+        int endChunkX = (adjustedPos.getX() + size.getX() - 1) >> 4;
+        int endChunkZ = (adjustedPos.getZ() + size.getZ() - 1) >> 4;
+        
+        // Adicionar margem de 1 chunk em todas as direções para garantir chunks adjacentes
+        int margin = 1;
+        int minChunkX = chunkX - margin;
+        int maxChunkX = endChunkX + margin;
+        int minChunkZ = chunkZ - margin;
+        int maxChunkZ = endChunkZ + margin;
 
-        for (int cx = chunkX; cx <= endChunkX; cx++) {
-            for (int cz = chunkZ; cz <= endChunkZ; cz++) {
+        System.out.println("[PlutoniumMod] Verificando chunks: [" + minChunkX + "," + minChunkZ + "] até [" + maxChunkX + "," + maxChunkZ + "]");
+
+        // Verificar todos os chunks necessários (área + adjacentes)
+        for (int cx = minChunkX; cx <= maxChunkX; cx++) {
+            for (int cz = minChunkZ; cz <= maxChunkZ; cz++) {
+                // Verificar se o chunk existe
                 if (!level.hasChunk(cx, cz)) {
-                    System.err.println("[PlutoniumMod] ⚠️ Chunk não disponível: " + cx + ", " + cz);
+                    System.err.println("[PlutoniumMod] ❌ Chunk não existe: [" + cx + ", " + cz + "]");
+                    return false;
+                }
+                
+                // Tentar acessar o chunk para garantir que está realmente carregado e acessível
+                try {
+                    var chunk = level.getChunk(cx, cz);
+                    if (chunk == null) {
+                        System.err.println("[PlutoniumMod] ❌ Chunk é null: [" + cx + ", " + cz + "]");
+                        return false;
+                    }
+                    // Se chegou aqui, o chunk está carregado e acessível
+                } catch (Exception e) {
+                    System.err.println("[PlutoniumMod] ❌ Erro ao acessar chunk [" + cx + ", " + cz + "]: " + e.getMessage());
                     return false;
                 }
             }
         }
 
-        System.out.println("[PlutoniumMod] Todos os chunks estão disponíveis, colocando estrutura...");
+        System.out.println("[PlutoniumMod] ✅ Todos os chunks estão disponíveis e carregados, colocando estrutura...");
 
         try {
             // ✅ Usar WorldGenLevel e flag 3 (mais seguro)
