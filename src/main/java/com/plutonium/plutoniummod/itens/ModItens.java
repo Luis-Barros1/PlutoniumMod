@@ -44,6 +44,9 @@ public class ModItens {
     public static final RegistryObject<Item> LEAD_INGOT = ITENS.register("lead_ingot",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> STEEL_INGOT = ITENS.register("steel_ingot",
+            () -> new Item(new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -4,6 +4,8 @@
     "plutoniummod:lead_ore",
     "plutoniummod:deepslate_lead_ore",
     "plutoniummod:pandorith_ore",
-    "plutoniummod:deepslate_pandorith_ore"
+    "plutoniummod:deepslate_pandorith_ore",
+    "plutoniummod:steel_block",
+    "plutoniummod:stamped_concrete"
   ]
 }
